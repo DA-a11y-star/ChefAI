@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block title %}Dashboard{% endblock %} {% block
+content %}
+<div class="centered-container">
+  <div class="dashboard-content">
+    <h1>Welcome to PlatePal!</h1>
+
+    <!-- Webcam container and button -->
+    <div id="webcam-container">
+      <video id="webcam" style="display: none" autoplay playsinline></video>
+    </div>
+    <button id="scanButton" class="form__button">Scan</button>
+
+    <div id="webcam-status" style="display: none; color: green; margin: 10px 0">
+      Webcam active - Ready to capture ingredients
+    </div>
+
+    <!-- Chat interface -->
+    <div id="chat-container"></div>
+    <div id="input-container">
+      <input
+        type="text"
+        id="user-input"
+        placeholder="Ask for a recipe..."
+        value="What can I make with these ingredients?"
+      />
+      <button onclick="sendMessage()" class="form__button">Get Recipe</button>
+    </div>
+
+    <div id="given-button-container" style="display: none">
+      <button id="givenButton" class="form__button">
+        Given Response Action
+      </button>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Account{% endblock %} {% block
+content %}
+
+<!-- Display the latest recipe -->
+<div class="latest-recipe">{{ latest_recipe | safe }}</div>
+<img class="recipe-img" src="{{ image }}" alt="" />
+
+<!-- Button to fetch missing ingredients -->
+<form method="POST" action="{{ url_for('account') }}">
+  <button class="form__button2">Fetch Missing Ingredients</button>
+</form>
+
+<!-- Section to display missing ingredients with horizontal scrolling -->
+<div id="missingIngredientsContainer" class="scrolling-container">
+  {% if missing_ingredients %} {% for ingredient in missing_ingredients %}
+  <a href="{{ ingredient.url }}" class="card-container">
+    <h3>{{ ingredient.title }}</h3>
+    <img
+      src="{{ ingredient.image_url }}"
+      alt="{{ ingredient.title }}"
+      class="ingredient-image"
+    />
+    <p>Price: {{ ingredient.price }}</p>
+  </a>
+  {% endfor %} {% else %} {% endif %}
+</div>
+{% endblock %}

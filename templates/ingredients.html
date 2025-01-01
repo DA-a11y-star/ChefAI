@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Scan Ingredients{% endblock %} {%
+block content %}
+<div class="home-content">
+  <h1>Welcome to PlatePal!</h1>
+
+  <!-- Webcam section -->
+  <div class="scan-section">
+    <div id="webcam-container"></div>
+    <button id="scanButton" class="action-button">Start Scan</button>
+    <div id="webcam-status" style="display: none; color: green; margin: 10px 0">
+      Webcam active - Ready to scan ingredients
+    </div>
+  </div>
+
+  <!-- Get ingredients button -->
+  <button id="getIngredientsButton" class="action-button">
+    Get Ingredients
+  </button>
+
+  <!-- Results section -->
+  <div id="results-container" style="display: none">
+    <h3>Detected Ingredients:</h3>
+    <div id="ingredients-list"></div>
+
+    {% endblock %} {% block scripts %}
+    <script src="{{ url_for('static', filename='home.js') }}"></script>
+    {% endblock %}
+  </div>
+</div>

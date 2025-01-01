@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %} - PlatePal</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='index.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Garamond&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    {% if session.get('username') %}
+    <nav class="navbar">
+      <a
+        href="{{ url_for('home') }}"
+        class="nav-item {{ 'active' if request.endpoint == 'home' }}"
+      >
+        <img
+          src="{{ url_for('static', filename='images/PlatePal_Logo-modified.png') }}"
+          alt="Logo"
+          class="logo"
+        />
+      </a>
+      <a
+        href="{{ url_for('home') }}"
+        class="nav-item {{ 'active' if request.endpoint == 'home' }}"
+      >
+        <i class="fas fa-home"></i>
+        Home
+      </a>
+      <a
+        href="{{ url_for('dashboard') }}"
+        class="nav-item {{ 'active' if request.endpoint == 'dashboard' }}"
+      >
+        <i class="fas fa-th-large"></i>
+        Chat Customizer
+      </a>
+      <a
+        href="{{ url_for('segments') }}"
+        class="nav-item {{ 'active' if request.endpoint == 'segments' }}"
+      >
+        <i class="fas fa-chart-pie"></i>
+        Tutorials
+      </a>
+      <a
+        href="{{ url_for('ingredients') }}"
+        class="nav-item {{ 'active' if request.endpoint == 'ingredients' }}"
+      >
+        <i class="fas fa-camera"></i>
+        Scan Ingredients
+      </a>
+      <a
+        href="{{ url_for('account') }}"
+        class="nav-item {{ 'active' if request.endpoint == 'account' }}"
+      >
+        <i class="fas fa-user"></i>
+        Recipe
+      </a>
+      <a
+        href="{{ url_for('settings') }}"
+        class="nav-item {{ 'active' if request.endpoint == 'settings' }}"
+      >
+        <i class="fas fa-cog"></i>
+        Settings
+      </a>
+    </nav>
+    {% endif %}
+
+    <div id="container">{% block content %}{% endblock %}</div>
+
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block title %}Hero{% endblock %} {% block content
+%}
+<img
+  src="{{ url_for('static', filename='images/cooking.jpg') }}"
+  alt="Chef cooking"
+  class="hero-background"
+/>
+<div class="hero-section">
+  <div class="hero-image">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>We Make Your <span class="highlight">Cooking</span> Easier</h1>
+        <p>l</p>
+        <p class="intro-text">
+          Providing various easy-to-follow recipes from all over the world and
+          five-star chefs to make at home. Learn how to make your cooking
+          tastier and easier with us!
+        </p>
+        <p>l</p>
+        <p class="stamp">What to cook today?</p>
+
+        <div class="search-container">
+          <input type="text" class="search-input" />
+          <button class="search-button">Search</button>
+        </div>
+
+        <!-- <div class="category-links">
+          <a href="#breakfast">Breakfast</a>
+          <a href="#lunch">Lunch</a>
+          <a href="#dinner">Dinner</a>
+          <a href="#desserts">Desserts</a>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="recipe-cards">
+    <div class="recipe-card">
+      <img
+        src="{{ url_for('static', filename='images/shrimp.jpeg') }}"
+        alt="Shrimp Skillet"
+        class="small-image"
+      />
+      <div class="card-info">
+        <h3>Shrimp Skillet</h3>
+        <p>Difficulty: <span class="stars">★★☆☆☆</span></p>
+        <p>Meal Type: Lunch</p>
+        <p>⏰ 30 mins</p>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <img
+        src="{{ url_for('static', filename='images/curry.jpg') }}"
+        alt="Vegetable Curry"
+        class="small-image"
+      />
+      <div class="card-info">
+        <h3>Vegetable Curry</h3>
+        <p>Difficulty: <span class="stars">★★★★☆</span></p>
+        <p>Meal Type: Dinner</p>
+        <p>⏰ 60 mins</p>
+      </div>
+    </div>
+  </div> -->
+</div>
+{% endblock %}

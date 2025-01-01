@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='Account.css') }}"
+    />
+  </head>
+  <body>
+    <div class="AccountForm">
+      <div class="container">
+        <form class="form" id="login" action="/register" method="post">
+          <h1 class="form__title">Create Account</h1>
+          <div class="form__input-group">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form__input"
+              autofocus
+              placeholder="Username"
+              required
+            />
+          </div>
+          <div class="form__input-group">
+            <input
+              type="text"
+              id="email"
+              name="email"
+              class="form__input"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div class="form__input-group">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              class="form__input"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <div class="form__input-group">
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              class="form__input"
+              placeholder="Confirm password"
+              required
+            />
+          </div>
+          {% for err in get_flashed_messages() %}
+          <p class="form__input-error-message">{{ err }}</p>
+          {% endfor %}
+          <input class="form__button" type="submit" value="Register" />
+          <p class="form__text">
+            <a class="form__link" href="./login" id="linkLogin">
+              Already have an account? Sign in
+            </a>
+          </p>
+        </form>
+      </div>
+    </div>
+    <!-- <h1>Register</h1>
+    <form action="/register" method="post">
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" name="username" required /><br />
+      <label for="email">Email:</label><br />
+      <input type="email" id="email" name="email" required /><br />
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" required /><br />
+      <label for="pin">PIN:</label><br />
+      <input type="number" id="pin" name="pin" required /><br />
+      <input type="submit" value="Register" />
+    </form>
+    <p>Already have an account? <a href="/login">Login here</a>.</p> -->
+  </body>
+</html>
